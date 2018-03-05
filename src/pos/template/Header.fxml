@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="header" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" style="-fx-background-color: #7EC0EE;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pos.template.HeaderController">
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <children>
+      <Button fx:id="product" mnemonicParsing="false" onMouseClicked="#sendProductFxml" text="Products">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" text="Transactions">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</HBox>
