@@ -10,7 +10,7 @@
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
    <children>
-      <Button fx:id="product" mnemonicParsing="false" onMouseClicked="#sendProductFxml" text="Products">
+      <Button fx:id="product" id="Test"  mnemonicParsing="false" onMouseClicked="#sendProductFxml" text="Products" accessibleText="Test">
          <font>
             <Font size="24.0" />
          </font>
