@@ -3,26 +3,28 @@ package pos.database;
 import java.sql.SQLException;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.TableUtils;
+
+import pos.entites.Person;
 
 public class DatabaseConfiguation {
 
 	private static ConnectionSource connectionSource;
 
 	public static void connectionConfiguration() throws ClassNotFoundException, SQLException {
-		Class.forName("org.sqlite.JDBC");
+	     Class.forName("org.sqlite.JDBC");
 		if (connectionSource == null) {
+			connectionSource = new JdbcConnectionSource("jdbc:sqlite:POS.db");
+			isTableExist();
 		}
-		getConnection(); /* get Connection with Database */
 	}
 
-	private static void getConnection() throws SQLException {
-		// TODO Auto-generated method stub
-		connectionSource = new JdbcConnectionSource("jdbc:sqlite:POS.db"); /* connect with database or create db */
-		isTableExsit();
+	private static void isTableExist() {
+		
+		try {
+			TableUtils.createTableIfNotExists(connectionSource, Person.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-
-	private static void isTableExsit() {
-		// TODO Auto-generated method stub
-		// check if the model already exist in the database or not
-	}
-}
+}	
