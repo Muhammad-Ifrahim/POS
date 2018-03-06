@@ -24,4 +24,5 @@ public class Person {
 	@DatabaseField(columnName = "lastName", dataType = DataType.STRING, canBeNull = false)
 	private String lastName;
 
+	//This is for testing purpose
 }
