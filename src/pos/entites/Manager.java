@@ -6,29 +6,29 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "Customer")
-public class Customer {
+@DatabaseTable(tableName = "Manager")
+public class Manager {
 	
-	@DatabaseField(columnName = "customerId" , generatedId = true )
+	@DatabaseField(columnName = "managerId" , generatedId = true )
 	private int id;
-
-	@DatabaseField(columnName = "person_id" , canBeNull = false , foreign = true)
-	private Person person;
+	
+	@DatabaseField(columnName = "staff_id" , canBeNull = false , foreign = true)
+	private Staff staff;
 	
 	@DatabaseField(columnName = "createdDate", dataType = DataType.DATE_LONG, format = "YYYY-MM-dd hh:mm:ss")
 	private final Date createdDate;
 	
-	public Customer()
+	public Manager()
 	{
 		this.createdDate = new Date();
 	}
 
-	public Person getPerson() {
-		return person;
+	public Staff getStaff() {
+		return staff;
 	}
 
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setStaff(Staff staff) {
+		this.staff = staff;
 	}
 
 	public int getId() {
@@ -40,4 +40,5 @@ public class Customer {
 	}
 	
 	
+
 }

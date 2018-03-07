@@ -6,19 +6,19 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "Customer")
-public class Customer {
-	
-	@DatabaseField(columnName = "customerId" , generatedId = true )
-	private int id;
+@DatabaseTable(tableName = "Staff")
+public class Staff {
 
+	@DatabaseField(columnName = "staffId" , generatedId = true )
+	private int id;
+	
 	@DatabaseField(columnName = "person_id" , canBeNull = false , foreign = true)
 	private Person person;
 	
 	@DatabaseField(columnName = "createdDate", dataType = DataType.DATE_LONG, format = "YYYY-MM-dd hh:mm:ss")
 	private final Date createdDate;
 	
-	public Customer()
+	public Staff()
 	{
 		this.createdDate = new Date();
 	}

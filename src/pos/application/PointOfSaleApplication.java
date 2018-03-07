@@ -2,6 +2,7 @@ package pos.application;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -20,8 +21,7 @@ public class PointOfSaleApplication extends Application {
 			DatabaseConfiguation.connectionConfiguration();
 		} catch (ClassNotFoundException | SQLException e) {
 		
-			e.printStackTrace();
-		}
+			e.printStackTrace();		}
 		//
 		TemplateController temp= new TemplateController();
 		BorderPane root = (BorderPane) temp.getMaintemplate();
