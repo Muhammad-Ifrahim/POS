@@ -31,6 +31,8 @@ public class PointOfSaleApplication extends Application {
 		primaryStage.show();
 		primaryStage.setFullScreen(true);
 	}
+	
+	
 
 	public static void main(String[] args) {
 		launch(args);

@@ -3,6 +3,7 @@
  */
 package pos.entites;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.j256.ormlite.field.DataType;
@@ -17,10 +18,12 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "Person")
 public class Person {
 
-	@DatabaseField(generatedId = true, columnName = "personId")
+	@DatabaseField(generatedId = true, columnName = "personId" )
 	private int id;
 
-	@DatabaseField(columnName = "firstName", dataType = DataType.STRING, useGetSet = true)
+	
+
+	@DatabaseField(columnName = "firstName", dataType = DataType.STRING , useGetSet = true)
 	private String firstName;
 
 	@DatabaseField(columnName = "lastName", dataType = DataType.STRING, canBeNull = false, useGetSet = true)
@@ -35,14 +38,19 @@ public class Person {
 	@DatabaseField(columnName = "contactNumber", dataType = DataType.STRING, useGetSet = true)
 	private String contactNumber;
 
-	@DatabaseField(columnName = "lastModifiedDate", version = true, dataType = DataType.DATE_STRING, format = "yyyy-MM-dd")
+	@DatabaseField(columnName = "lastModifiedDate", version = true, dataType = DataType.DATE_LONG, format = "YYYY-MM-dd hh:mm:ss")
 	private Date lastModifiedDate;
 
-	@DatabaseField(columnName = "createdDate", dataType = DataType.DATE_STRING, format = "yyyy-MM-dd")
+	@DatabaseField(columnName = "createdDate", dataType = DataType.DATE_LONG, format = "YYYY-MM-dd hh:mm:ss")
 	private final Date createdDate;
 
 	public Person() {
-		this.createdDate = new Date();
+		Date c = new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
+		//Date d = sdf.format(c);
+		System.out.println(sdf.format(c));
+		//Date cd= Date.parse(sdf.format(c).toString());
+		this.createdDate = c ;
 	}
 
 	public String getContactNumber() {
@@ -76,7 +84,7 @@ public class Person {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -88,5 +96,15 @@ public class Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+	
+	
 	// This is for testing purpose
 }
